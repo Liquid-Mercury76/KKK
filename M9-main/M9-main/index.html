@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Gemini GPS Navigator</title>
+    <meta name="description" content="A mobile-first GPS application powered by React, Leaflet, and the Gemini API."/>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <style>
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      body {
+        /* Add safe area padding for the status bar */
+        padding-top: env(safe-area-inset-top);
+      }
+      .leaflet-container {
+        height: 100%;
+        width: 100%;
+      }
+      .gps-marker .gps-dot {
+        background-color: #4A90E2;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      }
+      .route-path {
+        stroke-dasharray: 8, 8;
+        animation: dash 1s linear infinite;
+      }
+      @keyframes dash {
+          to {
+              stroke-dashoffset: 20;
+          }
+      }
+      .measuring-cursor .leaflet-container {
+        cursor: crosshair !important;
+      }
+      /* Adjust control panel positions for the status bar */
+      .control-panel-top {
+        top: calc(1rem + env(safe-area-inset-top));
+      }
+       .control-panel-side {
+        top: calc(5rem + env(safe-area-inset-top));
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react-leaflet": "https://aistudiocdn.com/react-leaflet@^5.0.0",
+    "leaflet": "https://aistudiocdn.com/leaflet@^1.9.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.0.4",
+    "vite": "https://aistudiocdn.com/vite@^7.1.7",
+    "@capacitor/core": "https://aistudiocdn.com/@capacitor/core@^7.4.3",
+    "@capacitor/cli": "https://aistudiocdn.com/@capacitor/cli@^7.4.3",
+    "@capacitor/status-bar": "https://aistudiocdn.com/@capacitor/status-bar@^7.0.3",
+    "@capacitor/geolocation": "https://aistudiocdn.com/@capacitor/geolocation@^7.1.5"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

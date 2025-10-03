@@ -1,0 +1,5 @@
+{
+  "name": "Gemini GPS Navigator",
+  "description": "A mobile-first GPS application that tracks your current location, allows you to search for places, measure distances, and plot paths on an interactive map, powered by React and Gemini.",
+  "requestFramePermissions": []
+}
